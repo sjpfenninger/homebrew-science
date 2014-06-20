@@ -37,6 +37,13 @@ class Tisean < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    By default, all TISEAN binaries are prefixed with `tisean-`.
+
+    For unprefixed binaries, set the `--no-prefixed-binaries` installation option.
+    EOS
+  end
+
   test do
     if (Dir.glob "#{bin}/tisean-*").length > 0
       Tisean::BINS.each { |item| system "#{bin}/tisean-#{item} -h" }
